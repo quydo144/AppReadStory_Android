@@ -42,8 +42,10 @@ public class activity_main extends AppCompatActivity {
                     break;
 //                case R.id.navigation_category:
 //                    break;
-//                case R.id.navigation_search:
-//                    break;
+                case R.id.navigation_search:
+                    selectedFragment = new fragment_search();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_main, selectedFragment).commit();
+                    break;
 //                case R.id.navigation_history:
 //                    break;
 //                case R.id.navigation_person:

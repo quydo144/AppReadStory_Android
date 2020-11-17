@@ -24,26 +24,21 @@
             app:queryHint="@string/search_hint" />
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_search_result"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar">
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:id="@+id/swipe_search_result"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/toolbar">-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerview_search"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_search"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_search_filter"
+    <FrameLayout
+        android:id="@+id/fragment_search_detail"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/large_space"
-        android:src="@drawable/baseline_filter_list_black_24"
-        android:tint="@color/white"
-        app:fabSize="mini" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+    </FrameLayout>
 </RelativeLayout>
