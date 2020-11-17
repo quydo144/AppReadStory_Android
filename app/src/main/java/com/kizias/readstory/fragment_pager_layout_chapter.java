@@ -1,5 +1,7 @@
 package com.kizias.readstory;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +18,7 @@ import com.kizias.readstory.Adapter.PageChapterAdapter;
 
 public class fragment_pager_layout_chapter extends Fragment {
 
+    SharedPreferences preferences;
     View view;
     ViewPager viewpager_chapter;
 
@@ -23,7 +26,11 @@ public class fragment_pager_layout_chapter extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_pager_layout_chapter, container, false);
-
+        preferences = getContext().getSharedPreferences("chapter_story", Context.MODE_PRIVATE);
+        int count = preferences.getInt("chapter_count", 0);
+        viewpager_chapter = view.findViewById(R.id.viewpager_chapter);
+        PageChapterAdapter adapter = new PageChapterAdapter(getChildFragmentManager(), count);
+        viewpager_chapter.setAdapter(adapter);
         return view;
     }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,7 @@ import retrofit2.Response;
 
 public class activity_story_detail extends AppCompatActivity {
 
+    SharedPreferences preferences;
     CircleImageView imageview_story_detail_cover;
     TextView textview_story_detail_name, textview_story_detail_chapter_count, textview_story_detail_status,
             textview_story_detail_description,textview_story_detail_author, textview_read_story_detail;
@@ -49,6 +51,7 @@ public class activity_story_detail extends AppCompatActivity {
     }
 
     private void Init(){
+        preferences = getSharedPreferences("chapter_story", MODE_PRIVATE);
         detail_close_btn = (ImageButton) findViewById(R.id.detail_close_btn);
         textview_story_detail_name = (TextView) findViewById(R.id.textview_story_detail_name);
         imageview_story_detail_cover = (CircleImageView) findViewById(R.id.imageview_story_detail_cover);
@@ -101,6 +104,9 @@ public class activity_story_detail extends AppCompatActivity {
                     if (response.body() != null) {
                         if (response.body().getStatus()) {
                             RenderData(response.body().getData());
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putInt("chapter_count", response.body().getData().getChapterCount());
+                            editor.apply();
                         }
                     }
                 }

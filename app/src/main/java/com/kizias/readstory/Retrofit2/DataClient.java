@@ -1,6 +1,7 @@
 package com.kizias.readstory.Retrofit2;
 
 import com.kizias.readstory.Model.MessageStory;
+import com.kizias.readstory.Model.MessageStoryChapter;
 import com.kizias.readstory.Model.MessageStoryDetail;
 
 import retrofit2.Call;
@@ -26,4 +27,10 @@ public interface DataClient {
 
     @GET("stories")
     Call<MessageStoryDetail> GetStoryDetail(@Query("id") String id);
+
+    @GET("chapters/detail")
+    Call<MessageStoryChapter> GetStoryChapter(
+            @Query("number") Integer number,
+            @Query("story_id") String story_id
+    );
 }
