@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_category_setting_list"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView_category_setting_list_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_space"
+        android:textColor="@color/secondText"
+        android:textSize="16.0sp" />
+
+    <com.adroitandroid.chipcloud.ChipCloud xmlns:chipcloud="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/chipCloud_category_setting_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/large_space"
+        chipcloud:allCaps="false"
+        chipcloud:deselectTransitionMS="250"
+        chipcloud:deselectedColor="@color/threeBackground"
+        chipcloud:deselectedFontColor="@color/threeText"
+        chipcloud:gravity="left"
+        chipcloud:minHorizontalSpacing="@dimen/medium_space"
+        chipcloud:selectMode="required"
+        chipcloud:selectTransitionMS="250"
+        chipcloud:selectedColor="@color/colorPrimary"
+        chipcloud:selectedFontColor="@color/whiteText"
+        chipcloud:textSize="14.0sp"
+        chipcloud:verticalSpacing="@dimen/medium_space" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/secondBackground" />
+        </shape>
+    </item>
+    <item android:gravity="center" android:drawable="@drawable/outline_person_24" android:left="@dimen/small_space" android:top="@dimen/small_space" android:right="@dimen/small_space" android:bottom="@dimen/small_space" />
+</layer-list>

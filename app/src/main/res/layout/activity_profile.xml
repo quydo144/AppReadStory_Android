@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_navigation_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boder_bottom"
+        android:layout_alignParentTop="true">
+        <androidx.appcompat.widget.Toolbar
+            android:background="#ffffff"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <ImageButton
+                android:id="@+id/detail_close_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_close_black_24dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:text="Tài khoản"
+                android:textColor="@color/mainText"
+                android:textSize="23dp" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@id/imageview_icon_profile"
+        android:layout_width="70.0dip"
+        android:layout_height="70.0dip"
+        android:layout_below="@+id/top_navigation_profile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30.0dip"
+        android:adjustViewBounds="true"
+        android:background="@drawable/account_bg"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/textview_name_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageview_icon_profile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/large_space"
+        android:textColor="@color/mainText"
+        android:textSize="@dimen/large_text_size" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_name_profile"
+        android:layout_marginStart="@dimen/medium_space"
+        android:layout_marginTop="@dimen/large_space" />
+
+    <Button
+        android:id="@+id/button_logout"
+        style="@style/ActionButton"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/large_space"
+        android:text="@string/profile_logout_button_tittle" />
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="44.0dip"
+    android:layout_margin="@dimen/medium_space"
+    android:background="@drawable/chapter_download_bg">
+
+    <TextView
+        android:id="@+id/textview_chapter_download_title"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:textColor="@color/secondText" />
+
+    <ImageView
+        android:id="@+id/imageview_chapter_download_check"
+        android:layout_width="18.0dip"
+        android:layout_height="18.0dip"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/medium_space"
+        android:src="@drawable/ic_check_circle_black_24dp" />
+</RelativeLayout>

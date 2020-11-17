@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/secondBackground" />
+            <size android:height="72.0dip" android:width="72.0dip" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/baseline_photo_size_select_actual_white_36" android:left="32.0dip" android:top="32.0dip" android:right="32.0dip" android:bottom="32.0dip" />
+</layer-list>

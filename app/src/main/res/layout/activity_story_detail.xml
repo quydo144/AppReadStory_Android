@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top_navigation_story_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boder_bottom"
+        android:layout_alignParentTop="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/detail_close_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/ic_close_black_24dp"
+                    android:foregroundGravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/medium_text_size"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="8dp"
+                    android:ems="10"
+                    android:text="Chi tiết truyện"
+                    android:textColor="@color/mainText"
+                    android:textSize="22dp"
+                    app:layout_constraintStart_toStartOf="@+id/detail_close_btn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/button_chapter_list"
+                    android:background="#00000000"
+                    android:foregroundGravity="center|right"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_height="40.0dip"
+                    android:layout_width="40.0dip"
+                    android:contentDescription="@string/chapter_list"
+                    android:src="@drawable/ic_menu_black_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_story_detail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/view_bottom_story_detail"
+        android:layout_below="@+id/top_navigation_story_detail">
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/view_top_story_detail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/medium_space">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@id/imageview_story_detail_cover"
+                        android:layout_width="70.0dip"
+                        android:layout_height="70.0dip"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="@dimen/large_space"
+                        android:background="@drawable/story_thumb_bg"
+                        android:scaleType="centerCrop"/>
+
+                    <ImageView
+                        android:id="@+id/imageview_story_detail_full"
+                        android:layout_width="17.0dip"
+                        android:layout_height="25.0dip"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="@dimen/large_space"
+                        android:src="@drawable/full" />
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_story_detail"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/medium_space"
+                        android:layout_marginEnd="@dimen/medium_space"
+                        android:layout_toEndOf="@+id/imageview_story_detail_cover"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textview_story_detail_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/medium_space"
+                            android:layout_marginEnd="@dimen/medium_space"
+                            android:textColor="@color/secondText"
+                            android:textSize="@dimen/xlarge_text_size"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textview_story_detail_author"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/medium_space"
+                            android:textColor="@color/mainText"
+                            android:textSize="@dimen/medium_text_size" />
+
+                        <TextView
+                            android:id="@+id/textview_story_detail_status"
+                            android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_space"
+                            android:textColor="@color/secondText"
+                            android:textSize="@dimen/medium_text_size" />
+
+                        <TextView
+                            android:id="@+id/textview_story_detail_chapter_count"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_space"
+                            android:layout_marginBottom="@dimen/small_space"
+                            android:textColor="@color/secondText"
+                            android:textSize="@dimen/medium_text_size" />
+                    </LinearLayout>
+
+                    <com.adroitandroid.chipcloud.ChipCloud
+                        xmlns:chipcloud="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/chip_cloud_story_tag"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/linearlayout_story_detail"
+                        android:layout_alignStart="@id/imageview_story_detail_cover"
+                        android:layout_marginTop="@dimen/small_space"
+                        android:layout_marginBottom="@dimen/small_space"
+                        chipcloud:allCaps="false"
+                        chipcloud:deselectTransitionMS="250"
+                        chipcloud:deselectedColor="@color/threeBackground"
+                        chipcloud:deselectedFontColor="@color/secondText"
+                        chipcloud:gravity="left"
+                        chipcloud:minHorizontalSpacing="@dimen/medium_space"
+                        chipcloud:selectMode="single"
+                        chipcloud:selectTransitionMS="250"
+                        chipcloud:selectedColor="@color/colorPrimary"
+                        chipcloud:selectedFontColor="@color/whiteText"
+                        chipcloud:textSize="@dimen/small_text_size"
+                        chipcloud:verticalSpacing="@dimen/medium_space" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/textview_story_detail_description"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/large_space"
+                    android:lineSpacingMultiplier="1.4"
+                    android:linksClickable="false"
+                    android:textColor="@color/secondText"
+                    android:textSize="@dimen/medium_text_size" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/view_bottom_story_detail"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/story_detail_bottom_background"
+        android:orientation="horizontal"
+        android:weightSum="3.0">
+
+        <LinearLayout
+            android:id="@+id/view_download_story_detail"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24.0dip"
+                android:layout_height="24.0dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/small_space"
+                android:src="@drawable/ic_file_download_black_24dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_download"
+                android:textAlignment="center"
+                android:textColor="@color/mainText"
+                android:textSize="@dimen/small_text_size" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textview_read_story_detail"
+            android:layout_width="0.0dip"
+            android:onClick="onClick"
+            android:layout_height="40.0dip"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:background="@drawable/story_read_bg"
+            android:gravity="center"
+            android:text="@string/story_read"
+            android:textColor="@color/mainText"
+            android:textSize="@dimen/large_text_size" />
+
+        <LinearLayout
+            android:id="@+id/view_like_story_detail"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageview_like_story_detail"
+                android:layout_width="24.0dip"
+                android:layout_height="24.0dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/small_space"
+                android:src="@drawable/ic_favorite_black_24dp"/>
+
+            <TextView
+                android:id="@+id/textview_like_story_detail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_like"
+                android:textAlignment="center"
+                android:textColor="@color/secondBackground"
+                android:textSize="@dimen/small_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

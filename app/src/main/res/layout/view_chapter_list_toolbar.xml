@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?actionBarSize"
+    android:orientation="horizontal"
+    android:weightSum="5.0">
+
+    <ImageView
+        android:id="@+id/imageview_chapter_list_first"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:padding="@dimen/large_space"
+        android:src="@drawable/ic_first_page_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageview_chapter_list_back"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:padding="@dimen/large_space"
+        android:src="@drawable/ic_chevron_left_black_24dp" />
+
+    <TextView
+        android:id="@+id/textview_chapter_list_page"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:gravity="center_vertical"
+        android:textColor="@color/mainText"
+        android:textSize="16.0sp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_chapter_list_forward"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:padding="@dimen/large_space"
+        android:src="@drawable/ic_chevron_right_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageview_chapter_list_last"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:padding="@dimen/large_space"
+        android:src="@drawable/ic_last_page_black_24dp" />
+</LinearLayout>

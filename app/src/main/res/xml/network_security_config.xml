@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">static.truyenfull.vn</domain>
+        <domain includeSubdomains="true">cdnvn.truyenfull.vn</domain>
+        <domain includeSubdomains="true">cdnaz.truyenfull.vn</domain>
+        <domain includeSubdomains="true">goctruyen.com</domain>
+        <domain includeSubdomains="true">truyenyeuthich.com</domain>
+    </domain-config>
+</network-security-config>
