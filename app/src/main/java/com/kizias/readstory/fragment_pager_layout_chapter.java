@@ -31,6 +31,7 @@ public class fragment_pager_layout_chapter extends Fragment {
         viewpager_chapter = view.findViewById(R.id.viewpager_chapter);
         PageChapterAdapter adapter = new PageChapterAdapter(getChildFragmentManager(), count);
         viewpager_chapter.setAdapter(adapter);
+        viewpager_chapter.setCurrentItem(3 - 1);    //view page bawts đầu từ 0
         return view;
     }
 }

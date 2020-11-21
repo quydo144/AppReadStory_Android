@@ -7,24 +7,4 @@
         android:id="@+id/viewpager_chapter"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
-
-<!--    <TextView-->
-<!--        android:id="@id/textview_chapter_count"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginStart="@dimen/large_space"-->
-<!--        android:textColor="@color/secondText"-->
-<!--        android:textSize="10.0sp" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/textview_page_count"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginEnd="@dimen/large_space"-->
-<!--        android:textColor="@color/secondText"-->
-<!--        android:textSize="10.0sp" />-->
 </RelativeLayout>

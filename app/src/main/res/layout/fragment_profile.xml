@@ -13,29 +13,23 @@
             android:background="#ffffff"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
-            <ImageButton
-                android:id="@+id/detail_close_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_close_black_24dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="25dp"
-                android:text="Tài khoản"
+                android:paddingLeft="20dp"
+                android:text="Cá nhân"
                 android:textColor="@color/mainText"
                 android:textSize="23dp" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@id/imageview_icon_profile"
         android:layout_width="70.0dip"
         android:layout_height="70.0dip"
         android:layout_below="@+id/top_navigation_profile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30.0dip"
-        android:adjustViewBounds="true"
         android:background="@drawable/account_bg"
         android:scaleType="centerCrop" />
 

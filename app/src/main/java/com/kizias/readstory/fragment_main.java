@@ -19,7 +19,7 @@ public class fragment_main extends Fragment {
 
     View view;
     TabLayout tabLayout;
-    TabItem moinhat, newcapnhat, full, danhgia, like, xemnhieu;
+    TabItem moinhat, newcapnhat, full, like;
     ViewPager viewPager;
 
     @Override
@@ -27,7 +27,7 @@ public class fragment_main extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_main, container, false);
         Init();
-        PageAdapter pageAdapter = new PageAdapter(getFragmentManager(), tabLayout.getTabCount());
+        PageAdapter pageAdapter = new PageAdapter(getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

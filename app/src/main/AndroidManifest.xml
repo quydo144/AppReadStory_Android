@@ -16,9 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReadStory">
-        <activity android:name=".activity_profile"></activity>
         <activity android:name=".activity_login" />
-        <activity android:name=".activity_author_stories" />
         <activity android:name=".activity_add_story_to_readlist" />
         <activity android:name=".activity_story_detail" />
         <activity android:name=".activity_my_readlists" />

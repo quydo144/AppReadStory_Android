@@ -13,10 +13,6 @@
         android:icon="@drawable/ic_search_black_24dp"
         android:title="@string/title_search" />
     <item
-        android:id="@+id/navigation_history"
-        android:icon="@drawable/ic_history_black_24dp"
-        android:title="@string/title_history" />
-    <item
         android:id="@+id/navigation_person"
         android:icon="@drawable/outline_person_black_24"
         android:title="@string/title_person" />

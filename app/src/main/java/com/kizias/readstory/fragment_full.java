@@ -119,7 +119,8 @@ public class fragment_full extends Fragment {
 
             @Override
             public void onFailure(Call<MessageStory> call, Throwable t) {
-                Log.e("Giá trị", "0");
+                progressBarTop.setVisibility(View.GONE);
+                progressBarBottom.setVisibility(View.GONE);
             }
         });
     }

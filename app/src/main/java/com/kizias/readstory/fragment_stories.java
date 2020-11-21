@@ -53,7 +53,6 @@ public class fragment_stories extends Fragment {
         LoadData(i);
         ShowDanhSach();
         SwipeRefreshLayout();
-
         recyclerview_story.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -84,6 +83,10 @@ public class fragment_stories extends Fragment {
         recyclerview_story = (RecyclerView) view.findViewById(R.id.recyclerview_story);
         progressBarBottom = (ProgressBar) view.findViewById(R.id.progressBarBottom);
         progressBarTop = (ProgressBar) view.findViewById(R.id.progressBarTop);
+    }
+
+    private void GetXY(){
+
     }
 
     protected void ShowDanhSach() {
@@ -122,7 +125,8 @@ public class fragment_stories extends Fragment {
 
             @Override
             public void onFailure(Call<MessageStory> call, Throwable t) {
-                Log.e("Giá trị", "0");
+                progressBarTop.setVisibility(View.GONE);
+                progressBarBottom.setVisibility(View.GONE);
             }
         });
     }

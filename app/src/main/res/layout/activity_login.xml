@@ -7,8 +7,7 @@
         android:id="@+id/top_navigation_login"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/boder_bottom"
-        android:layout_alignParentTop="true">
+        android:background="@drawable/boder_bottom">
         <androidx.appcompat.widget.Toolbar
             android:background="#ffffff"
             android:layout_width="fill_parent"
@@ -21,10 +20,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="25dp"
+                android:paddingLeft="20sp"
                 android:text="Đăng nhập / Đăng ký"
                 android:textColor="@color/mainText"
-                android:textSize="23dp" />
+                android:textSize="17dp" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 

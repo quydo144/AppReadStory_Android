@@ -115,7 +115,6 @@
     <string name="dark_mode">Chế độ ban đêm</string>
     <string name="debug_start_drag">Starting drag!</string>
     <string name="debug_start_unable_drag">Starting unable to drag!</string>
-    <string name="default_web_client_id">542716458455-6i9pl4libd6uog2jv7uuaqjsvhhickoj.apps.googleusercontent.com</string>
     <string name="delete">Xoá</string>
     <string name="delete_downloaded_story_confirm_message">Xoá các chương đã tải của truyện trên thiết bị này?</string>
     <string name="delete_liked_story_confirm_message">Xoá yêu thích của truyện trên thiết bị này?</string>
@@ -151,14 +150,7 @@ Truyện đã tải về máy sẽ hiển thị ở đây.
     <string name="filter_sort_header">Sắp Xếp</string>
     <string name="filter_status_header">Trạng Thái</string>
     <string name="filter_title">Lọc Truyện</string>
-    <string name="firebase_database_url">https://simbo-app.firebaseio.com</string>
     <string name="full">【FULL】</string>
-    <string name="gcm_defaultSenderId">542716458455</string>
-    <string name="google_api_key">AIzaSyDKa03LlVaSy30_ehmuODdDIWenUam7KJI</string>
-    <string name="google_app_id">1:542716458455:android:10061d44bbc61ace</string>
-    <string name="google_crash_reporting_api_key">AIzaSyDKa03LlVaSy30_ehmuODdDIWenUam7KJI</string>
-    <string name="google_storage_bucket">simbo-app.appspot.com</string>
-    <string name="google_web_client_id">542716458455-5f01sripi98soiulg7vmq36bt177du2k.apps.googleusercontent.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hide_bottom_view_on_scroll_behavior">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="html_mime_type">text/html</string>
@@ -308,7 +300,6 @@ Hãy tạo nhiều bộ sưu tập hay, các thể loại bạn thích và chia 
     <string name="profile_history_header">Lịch sử</string>
     <string name="profile_logout_button_tittle">Đăng xuất</string>
     <string name="profile_navigation_title">Tài khoản</string>
-    <string name="project_id">simbo-app</string>
     <string name="read_list_global">Mọi người</string>
     <string name="read_list_private">Chỉ mình tôi</string>
     <string name="read_story_empty_message">"Không có dữ liệu

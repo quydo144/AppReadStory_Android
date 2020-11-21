@@ -33,4 +33,11 @@ public interface DataClient {
             @Query("number") Integer number,
             @Query("story_id") String story_id
     );
+
+    @GET("stories/list")
+    Call<MessageStory> SearchDanhSachTruyen(
+            @Query("keyword") String keyword,
+            @Query("limit") Integer offset,
+            @Query("offset") Integer sort
+    );
 }
