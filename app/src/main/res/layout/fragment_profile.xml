@@ -14,12 +14,22 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
             <TextView
+                android:id="@+id/canhan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:text="Cá nhân"
                 android:textColor="@color/mainText"
                 android:textSize="23dp" />
+
+            <ImageButton
+                android:id="@+id/setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="290sp"
+                android:background="#fff"
+                android:src="@drawable/ic_settings_black_24dp"
+                />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 

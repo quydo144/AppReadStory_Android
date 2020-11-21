@@ -1,11 +1,16 @@
 package com.kizias.readstory.Retrofit2;
 
+import com.kizias.readstory.Model.History;
+import com.kizias.readstory.Model.MessageHistory;
 import com.kizias.readstory.Model.MessageStory;
 import com.kizias.readstory.Model.MessageStoryChapter;
 import com.kizias.readstory.Model.MessageStoryDetail;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface DataClient {
@@ -40,4 +45,13 @@ public interface DataClient {
             @Query("limit") Integer offset,
             @Query("offset") Integer sort
     );
+
+    @POST("/")
+    Call<MessageHistory> AddHistoryStory(@Body History history);
+
+    @POST("/detail")
+    Call<MessageHistory> GetDetailHistory(@Body History history);
+
+    @PATCH("/")
+    Call<MessageHistory> UpdateHistory(@Body History history);
 }

@@ -6,5 +6,6 @@
         <domain includeSubdomains="true">cdnaz.truyenfull.vn</domain>
         <domain includeSubdomains="true">goctruyen.com</domain>
         <domain includeSubdomains="true">truyenyeuthich.com</domain>
+        <domain includeSubdomains="true">13.229.207.6</domain>
     </domain-config>
 </network-security-config>
