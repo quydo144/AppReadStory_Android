@@ -58,7 +58,6 @@ public class fragmentf_profile extends Fragment {
 
     protected void Init(){
         preferences = getContext().getSharedPreferences("user", Context.MODE_PRIVATE);
-        button_logout = (Button) view.findViewById(R.id.button_logout);
         imageview_icon_profile = (ImageView) view.findViewById(R.id.imageview_icon_profile);
         textview_name_profile = (TextView) view.findViewById(R.id.textview_name_profile);
         setting = (ImageButton) view.findViewById(R.id.setting);

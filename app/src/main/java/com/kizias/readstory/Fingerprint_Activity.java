@@ -1,149 +1,79 @@
 package com.kizias.readstory;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.annotation.TargetApi;
-import android.app.KeyguardManager;
-import android.content.pm.PackageManager;
-import android.hardware.fingerprint.FingerprintManager;
-import android.os.Build;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.hardware.biometrics.BiometricManager;
+import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
-import android.security.keystore.KeyGenParameterSpec;
-import android.security.keystore.KeyPermanentlyInvalidatedException;
-import android.security.keystore.KeyProperties;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.os.CancellationSignal;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
-import com.kizias.readstory.Model.FingerprintHandler;
-
-import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class Fingerprint_Activity extends AppCompatActivity {
 
-    private TextView mHeadingLabel;
-    private ImageView mFingerprintImage;
-    private TextView mParaLabel;
+    ImageButton fingerprintImage;
+    Fingerprint_Activity activity = this;
+    Executor executor = Executors.newSingleThreadExecutor();
+    BiometricPrompt biometricPrompt;
 
-    private FingerprintManager fingerprintManager;
-    private KeyguardManager keyguardManager;
+    @Override
+    protected void onStart() {
+        super.onStart();
+        biometricPrompt.authenticate(new CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
 
-    private KeyStore keyStore;
-    private Cipher cipher;
-    private String KEY_NAME = "AndroidKey";
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), activity_main.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fingerprint_);
+        fingerprintImage = (ImageButton) findViewById(R.id.fingerprintImage);
 
-        mHeadingLabel = (TextView) findViewById(R.id.headingLabel);
-        mFingerprintImage = (ImageView) findViewById(R.id.fingerprintImage);
-        mParaLabel = (TextView) findViewById(R.id.paraLabel);
+        biometricPrompt = new BiometricPrompt.Builder((this))
+                .setTitle("Xác thực vân tay")
+                .setDescription("Vân tay")
+                .setNegativeButton("Huỷ", executor, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
-            keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
-            if (!fingerprintManager.isHardwareDetected()) {
+                    }
+                }).build();
 
-                mParaLabel.setText("Máy của bạn không hỗ trợ vân tay");
-
-            } else if (ContextCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
-
-                mParaLabel.setText("Permission not granted to use Fingerprint Scanner");
-
-            } else if (!keyguardManager.isKeyguardSecure()) {
-
-                mParaLabel.setText("Add Lock to your Phone in Settings");
-
-            } else if (!fingerprintManager.hasEnrolledFingerprints()) {
-
-                mParaLabel.setText("You should add atleast 1 Fingerprint to use this Feature");
-
-            } else {
-
-                mParaLabel.setText("Quét vân tay để truy cập ứng dụng");
-
-                generateKey();
-
-                if (cipherInit()) {
-
-                    FingerprintManager.CryptoObject cryptoObject = new FingerprintManager.CryptoObject(cipher);
-                    FingerprintHandler fingerprintHandler = new FingerprintHandler(this);
-                    fingerprintHandler.startAuth(fingerprintManager, cryptoObject);
-
-                }
+        fingerprintImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                biometricPrompt.authenticate(new CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
+                    @Override
+                    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(getApplicationContext(), activity_main.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                                startActivity(intent);
+                            }
+                        });
+                    }
+                });
             }
-
-        }
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private boolean cipherInit() {
-        try {
-            cipher = Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/" + KeyProperties.BLOCK_MODE_CBC + "/" + KeyProperties.ENCRYPTION_PADDING_PKCS7);
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            throw new RuntimeException("Failed to get Cipher", e);
-        }
-
-
-        try {
-
-            keyStore.load(null);
-
-            SecretKey key = (SecretKey) keyStore.getKey(KEY_NAME,
-                    null);
-
-            cipher.init(Cipher.ENCRYPT_MODE, key);
-
-            return true;
-
-        } catch (KeyPermanentlyInvalidatedException e) {
-            return false;
-        } catch (KeyStoreException | CertificateException | UnrecoverableKeyException | IOException | NoSuchAlgorithmException | InvalidKeyException e) {
-            throw new RuntimeException("Failed to init Cipher", e);
-        }
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private void generateKey() {
-        try {
-
-            keyStore = KeyStore.getInstance("AndroidKeyStore");
-            KeyGenerator keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore");
-
-            keyStore.load(null);
-            keyGenerator.init(new
-                    KeyGenParameterSpec.Builder(KEY_NAME,
-                    KeyProperties.PURPOSE_ENCRYPT |
-                            KeyProperties.PURPOSE_DECRYPT)
-                    .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-                    .setUserAuthenticationRequired(true)
-                    .setEncryptionPaddings(
-                            KeyProperties.ENCRYPTION_PADDING_PKCS7)
-                    .build());
-            keyGenerator.generateKey();
-
-        } catch (KeyStoreException | IOException | CertificateException
-                | NoSuchAlgorithmException | InvalidAlgorithmParameterException
-                | NoSuchProviderException e) {
-
-            e.printStackTrace();
-
-        }
+        });
     }
 }
