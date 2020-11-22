@@ -45,8 +45,6 @@ public class activity_history_story extends AppCompatActivity {
     ImageButton delete_history, detail_close_btn;
     RecyclerView recyclerview_story;
     LinearLayoutManager layoutManager;
-    Boolean isScrolling = false;
-    int currentItem, totalItem, scrollOutItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +98,6 @@ public class activity_history_story extends AppCompatActivity {
                             public void onResponse(Call<MessageHistory> call, Response<MessageHistory> response) {
                                 if (response.isSuccessful())
                                     if (response.body().getSuccess() == 1) {
-                                        LoadData();
                                     }
                             }
 
@@ -109,6 +106,8 @@ public class activity_history_story extends AppCompatActivity {
 
                             }
                         });
+                        LoadData();
+                        adapter.notifyDataSetChanged();
                     }
                 });
 

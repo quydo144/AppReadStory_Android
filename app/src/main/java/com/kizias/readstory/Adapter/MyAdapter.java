@@ -72,6 +72,8 @@ public class MyAdapter extends RecyclerView.Adapter<Stories> {
         }
         else {
             holder.textview_story_name.setText(itemFirst.get(position).getTitle());
+            holder.textview_story_name.setPadding(0, 70, 0, 0);
+            holder.textview_story_name.setTextSize(18);
             Glide.with(context).load(itemFirst.get(position).getCover()).into(holder.imageview_story_thumb);
         }
     }

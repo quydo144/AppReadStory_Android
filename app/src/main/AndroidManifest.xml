@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
     <application
@@ -17,17 +18,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReadStory">
-        <activity android:name=".activity_history_story"></activity>
-        <activity android:name=".activity_login" />
-        <activity android:name=".activity_add_story_to_readlist" />
-        <activity android:name=".activity_story_detail" />
-        <activity android:name=".activity_my_readlists" />
-        <activity android:name=".activity_main">
+        <activity android:name=".Fingerprint_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity_history_story" />
+        <activity android:name=".activity_login" />
+        <activity android:name=".activity_add_story_to_readlist" />
+        <activity android:name=".activity_story_detail" />
+        <activity android:name=".activity_main">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
     </application>
 
