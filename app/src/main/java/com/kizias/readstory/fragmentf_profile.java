@@ -29,20 +29,43 @@ public class fragmentf_profile extends Fragment {
     View view;
     ImageView imageview_icon_profile, setting;
     Button button_logout;
-    TextView textview_name_profile;
+    TextView textview_name_profile, historyStory;
     SharedPreferences preferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_profile, container, false);
+        Init();
+        historyStory_Click();
+        Setting_Click();
 
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
+        if (account != null){
+            Glide.with(getContext()).load(account.getPhotoUrl()).into(imageview_icon_profile);
+            textview_name_profile.setText(account.getDisplayName());
+        }
+
+        button_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Logout();
+            }
+        });
+
+        return view;
+    }
+
+    protected void Init(){
         preferences = getContext().getSharedPreferences("user", Context.MODE_PRIVATE);
         button_logout = (Button) view.findViewById(R.id.button_logout);
         imageview_icon_profile = (ImageView) view.findViewById(R.id.imageview_icon_profile);
         textview_name_profile = (TextView) view.findViewById(R.id.textview_name_profile);
         setting = (ImageButton) view.findViewById(R.id.setting);
+        historyStory = (TextView) view.findViewById(R.id.historyStory);
+    }
 
+    protected void Setting_Click(){
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,20 +85,16 @@ public class fragmentf_profile extends Fragment {
                 });
             }
         });
+    }
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
-        if (account != null){
-            Glide.with(getContext()).load(account.getPhotoUrl()).into(imageview_icon_profile);
-            textview_name_profile.setText(account.getDisplayName());
-        }
-        button_logout.setOnClickListener(new View.OnClickListener() {
+    protected void historyStory_Click(){
+        historyStory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Logout();
+                Intent intent = new Intent(getContext(), activity_history_story.class);
+                startActivity(intent);
             }
         });
-
-        return view;
     }
 
     protected void Logout(){

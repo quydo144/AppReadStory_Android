@@ -8,9 +8,11 @@ import com.kizias.readstory.Model.MessageStoryDetail;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface DataClient {
@@ -54,4 +56,10 @@ public interface DataClient {
 
     @PATCH("/")
     Call<MessageHistory> UpdateHistory(@Body History history);
+
+    @GET("/uid_user={uid_user}")
+    Call<MessageHistory> GetHistory(@Path("uid_user") String uid_user);
+
+    @POST("/delete")
+    Call<MessageHistory> DeleteHistory(@Body History history);
 }

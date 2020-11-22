@@ -85,10 +85,6 @@ public class fragment_stories extends Fragment {
         progressBarTop = (ProgressBar) view.findViewById(R.id.progressBarTop);
     }
 
-    private void GetXY(){
-
-    }
-
     protected void ShowDanhSach() {
         layoutManager = new LinearLayoutManager(view.getContext());
         adapter = new MyAdapter(view.getContext(), lstFirst);

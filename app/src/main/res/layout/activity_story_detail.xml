@@ -188,31 +188,8 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/story_detail_bottom_background"
         android:orientation="horizontal"
+        android:gravity="center"
         android:weightSum="3.0">
-
-        <LinearLayout
-            android:id="@+id/view_download_story_detail"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1.0"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="24.0dip"
-                android:layout_height="24.0dip"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="@dimen/small_space"
-                android:src="@drawable/ic_file_download_black_24dp" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/title_download"
-                android:textAlignment="center"
-                android:textColor="@color/mainText"
-                android:textSize="@dimen/small_text_size" />
-        </LinearLayout>
 
         <TextView
             android:id="@+id/textview_read_story_detail"
@@ -226,31 +203,5 @@
             android:text="@string/story_read"
             android:textColor="@color/mainText"
             android:textSize="@dimen/large_text_size" />
-
-        <LinearLayout
-            android:id="@+id/view_like_story_detail"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1.0"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageview_like_story_detail"
-                android:layout_width="24.0dip"
-                android:layout_height="24.0dip"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="@dimen/small_space"
-                android:src="@drawable/ic_favorite_black_24dp"/>
-
-            <TextView
-                android:id="@+id/textview_like_story_detail"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/title_like"
-                android:textAlignment="center"
-                android:textColor="@color/secondBackground"
-                android:textSize="@dimen/small_text_size" />
-        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
