@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "560498851975",
+    "firebase_url": "https://readstory-1605890274753.firebaseio.com",
+    "project_id": "readstory-1605890274753",
+    "storage_bucket": "readstory-1605890274753.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560498851975:android:36b4b64287e50541cab822",
+        "android_client_info": {
+          "package_name": "com.kizias.readstory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560498851975-hmveoi073gkc7qbgbm98pp7004jq5s5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kizias.readstory",
+            "certificate_hash": "30e2e53059eff3968425e78e930c14042db067b7"
+          }
+        },
+        {
+          "client_id": "560498851975-5ps9rbbucegrla2rm5g0b8l4t02o3387.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm6YX-6FRtzXJbldeTUhbrqgwQcyA-Bwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "560498851975-5ps9rbbucegrla2rm5g0b8l4t02o3387.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

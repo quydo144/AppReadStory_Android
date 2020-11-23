@@ -116,7 +116,7 @@ public class activity_add_story_to_readlist extends AppCompatActivity {
         History history = new History();
         history.setUidUser(uid_user);
         history.setIdStory(id_story);
-        history.setChapter(chapter);
+        history.setChapter(chapter - 1);
         history.setLocation(location);
         Call<MessageHistory> callAdd = dataClient.AddHistoryStory(history);
         callAdd.enqueue(new Callback<MessageHistory>() {

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -28,6 +29,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class activity_login extends AppCompatActivity {
 
+    ProgressBar loadloginin;
     SharedPreferences preferences;
     private GoogleSignInClient mGoogleSignInClinet;
     private final static int RC_SIGN_IN = 123;
@@ -44,6 +46,7 @@ public class activity_login extends AppCompatActivity {
         CreateSignIn();
         google_sign_in_button = (SignInButton) findViewById(R.id.google_sign_in_button);
         detail_close_btn = (ImageButton) findViewById(R.id.detail_close_btn);
+        loadloginin = (ProgressBar) findViewById(R.id.loadloginin);
 
         detail_close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +72,7 @@ public class activity_login extends AppCompatActivity {
     }
 
     private void SignIn(){
+        loadloginin.setVisibility(View.VISIBLE);
         Intent signInIntent = mGoogleSignInClinet.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }

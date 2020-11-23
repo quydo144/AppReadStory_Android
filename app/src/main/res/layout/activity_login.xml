@@ -27,6 +27,15 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
+
+    <ProgressBar
+        android:id="@+id/loadloginin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:layout_centerVertical="true"/>
+
     <ImageView
         android:id="@+id/imageview_icon_login"
         android:layout_width="56.0dip"

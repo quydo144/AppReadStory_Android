@@ -66,10 +66,12 @@
             android:id="@+id/historyStory"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:padding="10sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textStyle="bold|normal"
-            android:text="Truyện đã xem"
+            android:text="Xem danh sách truyện đã xem"
+            android:background="@drawable/button_border"
             android:textSize="@dimen/large_text_size"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,10 @@
 package com.kizias.readstory;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,11 +26,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 
+import static android.content.Context.ACTIVITY_SERVICE;
+
 public class fragmentf_profile extends Fragment {
 
     View view;
     ImageView imageview_icon_profile, setting;
-    Button button_logout;
     TextView textview_name_profile, historyStory;
     SharedPreferences preferences;
 
@@ -45,13 +48,6 @@ public class fragmentf_profile extends Fragment {
             Glide.with(getContext()).load(account.getPhotoUrl()).into(imageview_icon_profile);
             textview_name_profile.setText(account.getDisplayName());
         }
-
-        button_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Logout();
-            }
-        });
 
         return view;
     }
@@ -101,9 +97,13 @@ public class fragmentf_profile extends Fragment {
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
         editor.apply();
-        Toast.makeText(getContext(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getContext(), activity_main.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        Toast.makeText(getContext(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+//        if (Build.VERSION_CODES.KITKAT <= Build.VERSION.SDK_INT) {
+//            ((ActivityManager) getContext().getSystemService(ACTIVITY_SERVICE)).clearApplicationUserData();
+//            return;
+//        }
     }
 }
